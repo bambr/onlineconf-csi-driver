@@ -56,6 +56,7 @@ func readVolumeCapability(capability *csi.VolumeCapability) (*volumeCapability, 
 
 type volumeContext struct {
 	uri            string
+	datacenter     string
 	updateInterval time.Duration
 	vars           map[string]string
 }
@@ -63,6 +64,7 @@ type volumeContext struct {
 func readVolumeContext(parameters map[string]string) (*volumeContext, error) {
 	ctx := &volumeContext{
 		uri:  parameters["uri"],
+		datacenter: parameters["datacenter"],
 		vars: make(map[string]string, len(parameters)),
 	}
 

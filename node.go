@@ -107,6 +107,7 @@ func (ns *nodeServer) NodeStageVolume(ctx context.Context, req *csi.NodeStageVol
 	state := updaterState{
 		DataDir:        stage,
 		URI:            volCtx.uri,
+		Datacenter:     volCtx.datacenter,
 		Username:       req.GetSecrets()["username"],
 		Password:       req.GetSecrets()["password"],
 		UpdateInterval: volCtx.updateInterval,
